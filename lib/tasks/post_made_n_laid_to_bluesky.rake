@@ -17,7 +17,7 @@ task :post_made_n_laid_to_bluesky => :environment do
     bluesky_app_password = ENV['MADE_N_LAID_BLUESKY_APP_PASSWORD']
     
     # We construct the text to be posted.
-    post_text = made_n_laid_statutory_instrument.post_text
+    post_text = made_n_laid_statutory_instrument.bluesky_post_text
     
     # ... we attempt to authenticate.
     uri = URI( 'https://bsky.social/xrpc/com.atproto.server.createSession' )
