@@ -36,7 +36,6 @@ class MadeNLaidStatutoryInstrument < ApplicationRecord
     # This leaves us with 145 characters, so we truncate - if necessary - to that.
     post_text = self.truncated_title( 145 )
     
-    post_text += '. '
     post_text += "Made on #{self.made_on.strftime( date_format )}, "
     post_text += "laid on #{self.laid_on.strftime( date_format )}. "
     post_text += "Subject to the #{self.procedure.downcase} procedure. "
