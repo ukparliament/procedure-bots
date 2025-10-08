@@ -28,7 +28,7 @@ task :import_treaties => :environment do
       treaty = Treaty.new
       treaty.uri = row['Treaty']
       treaty.title = row['treatyTitle']
-      treaty.lead_organisation_name = row['LeadOrg']
+      treaty.lead_organisation_name = row['LeadOrgName']
       treaty.series_citation = row['seriesCitation']
       treaty.laid_on = row['laidDate']
       treaty.procedure_browser_url = row['WorkPackageURL']
@@ -44,7 +44,7 @@ def treaty_query
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX : <https://id.parliament.uk/schema/>
     PREFIX id: <https://id.parliament.uk/>
-    SELECT ?Treaty ?treatyTitle ?LeadOrg ?seriesCitation ?laidDate ?WorkPackageURL  WHERE {
+    SELECT ?Treaty ?treatyTitle ?LeadOrgName ?seriesCitation ?laidDate ?WorkPackageURL  WHERE {
      ?Treaty a :Treaty;
              :name ?treatyTitle ;
              :treatyHasLeadGovernmentOrganisation ?LeadOrg;
