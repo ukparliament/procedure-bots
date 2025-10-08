@@ -62,9 +62,11 @@ task :post_made_n_laid_to_bluesky => :environment do
       made_n_laid_statutory_instrument.posted_to_bluesky = true
       made_n_laid_statutory_instrument.save!
     else
+    
       puts '======'
       puts "Failed to post: #{post_text}"
       puts "Post length: #{post_text.size}"
+      puts response.inspect
     end
   
     # We pause for two seconds.
