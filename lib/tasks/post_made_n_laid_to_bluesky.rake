@@ -61,8 +61,10 @@ task :post_made_n_laid_to_bluesky => :environment do
       # ... we mark the made and laid statutory instrument as posted to Bluesky.
       made_n_laid_statutory_instrument.posted_to_bluesky = true
       made_n_laid_statutory_instrument.save!
-    else 
+    else
+      puts '======'
       puts "Failed to post: #{post_text}"
+      puts "Post length: #{post_text.size}"
     end
   
     # We pause for two seconds.
