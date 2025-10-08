@@ -88,21 +88,25 @@ def create_facets( text )
 
   # We find the links.
   text.enum_for( :scan, link_pattern ).each do |m|
-    index_start = Regexp.last_match.offset(0).first
-    index_end = Regexp.last_match.offset(0).last
-    facets.push(
-      '$type' => 'app.bsky.richtext.facet',
-      'index' => {
-        'byteStart' => index_start,
-        'byteEnd' => index_end,
-      },
-      'features' => [
-        {
-          '$type' => 'app.bsky.richtext.facet#link',
-          'uri' => m.join("").strip.sub( 'httpsa', 'https://a' ) # this is the matched link
+  
+    # link_pattern was picking up on anything with a colon, so we check the first item in the array is https
+    if m.first == 'https'
+      index_start = Regexp.last_match.offset(0).first
+      index_end = Regexp.last_match.offset(0).last
+      facets.push(
+        '$type' => 'app.bsky.richtext.facet',
+        'index' => {
+          'byteStart' => index_start,
+          'byteEnd' => index_end,
         },
-      ],
-    )
+        'features' => [
+          {
+            '$type' => 'app.bsky.richtext.facet#link',
+            'uri' => m.join("").strip.sub( 'httpsa', 'https://a' ) # this is the matched link
+          },
+        ],
+      )
+    end
   end
   
   # We return the matched facets.
