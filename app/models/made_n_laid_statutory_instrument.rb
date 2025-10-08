@@ -26,4 +26,64 @@ class MadeNLaidStatutoryInstrument < ApplicationRecord
     post_text += self.procedure_browser_url
     post_text
   end
+  
+  def bluesky_post_text
+    date_format = '%d-%m-%Y'
+    
+    # Bluesky allows for posts with a character length of 300.
+    # The rest of post - made date, laid date, procedure and link - take up a maximum of 151 characters.
+    # If the title is truncated, we want to add an ellipsis and a space, taking another four characters.
+    # This leaves us with 145 characters, so we truncate - if necessary - to that.
+    post_text = self.truncated_title( 145 )
+    
+    post_text += '. '
+    post_text += "Made on #{self.made_on.strftime( date_format )}, "
+    post_text += "laid on #{self.laid_on.strftime( date_format )}. "
+    post_text += "Subject to the #{self.procedure.downcase} procedure. "
+    post_text += self.procedure_browser_url
+    post_text
+  end
+  
+  # A method to truncate the instrument title.
+  def truncated_title( max_length )
+
+    # We create a truncated title string for length comparison.
+    truncated_title_for_length_comparison = ''
+  
+    # We create the truncated title string.
+    truncated_title = ''
+  
+    # We split the title into an array of words.
+    words = self.title.split( ' ' )
+  
+    # For each word ...
+    words.each_with_index do |word, index|
+    
+      # If the truncated title plus the word plus a space is less than the maximum length ...
+      if ( truncated_title_for_length_comparison += word + ' ' ).size < max_length
+    
+        # ... we add the word to the truncated title and append a space.
+        truncated_title += word + ' '
+      end
+    end
+  
+    # We strip any trailing space from the truncated title.
+    truncated_title = truncated_title.strip
+  
+    # If the title has not been truncated ...
+    if truncated_title == self.title
+  
+      # ... we add a full stop and a space to the truncated title.
+      truncated_title += '. '
+    
+    # Otherwise, if the title has been truncated ...
+    else
+  
+      # ... we add an ellipsis and a space to the truncated title.
+      truncated_title += '... '
+    end
+  
+    # We return the truncated title.
+    truncated_title
+  end
 end
