@@ -15,4 +15,14 @@
 #  updated_at             :datetime         not null
 #
 class Treaty < ApplicationRecord
+
+  def post_text
+    date_format = '%d-%m-%Y'
+    post_text = self.lead_organisation_name
+    post_text += ' treaty '
+    post_text += self.series_citation
+    post_text += ' has been laid by the FCDO '
+    post_text += self.procedure_browser_url
+    post_text
+  end
 end
