@@ -43,6 +43,22 @@ class MadeNLaidStatutoryInstrument < ApplicationRecord
     post_text
   end
   
+  def mastodon_post_text
+    date_format = '%d-%m-%Y'
+    
+    # Mastodon allows for posts with a character length of 500.
+    # The rest of post - made date, laid date, procedure and link - take up a maximum of 151 characters.
+    # If the title is truncated, we want to add an ellipsis and a space, taking another four characters.
+    # This leaves us with 345 characters, so we truncate - if necessary - to that.
+    post_text = self.truncated_title( 345 )
+    
+    post_text += "Made on #{self.made_on.strftime( date_format )}, "
+    post_text += "laid on #{self.laid_on.strftime( date_format )}. "
+    post_text += "Subject to the #{self.procedure.downcase} procedure. "
+    post_text += self.procedure_browser_url
+    post_text
+  end
+  
   # A method to truncate the instrument title.
   def truncated_title( max_length )
 
