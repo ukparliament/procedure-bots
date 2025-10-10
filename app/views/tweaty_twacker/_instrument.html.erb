@@ -1,0 +1,9 @@
+<li class="list-group-item">
+	<%= content_tag( 'h2', link_to( instrument.title, instrument.procedure_browser_url ) ) %>
+	<%= content_tag( 'p', "Series citation: #{instrument.series_citation}" ) %>
+	<%= content_tag( 'p', "Laid on: #{instrument.laid_on.strftime( $DATE_DISPLAY_FORMAT )}" ) %>
+	<%= content_tag( 'p', "Lead organisation: #{instrument.lead_organisation_name}" ) %>
+	<%= content_tag( 'p', "Posted to Bluesky: #{instrument.posted_to_bluesky}" ) %>
+	<%= content_tag( 'p', "Posted to Mastodon: #{instrument.posted_to_mastodon}" ) %>
+	<%= content_tag( 'p', "Imported: #{instrument.created_at.strftime( $DATETIME_DISPLAY_FORMAT )}" ) %>
+</li>

@@ -1,0 +1,5 @@
+<%= render 'library_design/subnav/subnav' do %>
+	<%= link_to( 'All treaties', tweaty_twacker_list_url, :class => 'all' ) %>
+	<%= link_to( 'Not posted to Bluesky', tweaty_twacker_not_posted_to_bluesky_url, :class => 'not-bluesky' ) %>
+	<%= link_to( 'Not posted to Mastodon', tweaty_twacker_not_posted_to_mastodon_url, :class => 'not-mastodon' ) %>
+<% end %>
