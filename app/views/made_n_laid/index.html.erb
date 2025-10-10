@@ -1,0 +1,9 @@
+<%= render :partial => 'nav' %>
+
+<%= list_item_count_sentence( 'made and laid statutory instrument', @instruments.size ) %>
+
+<%= render :partial => 'library_design/feeds/feeds' %>
+
+<ol class="unnumbered margin-top-20" role="list">
+	<%= render :partial => 'instrument', :collection => @instruments %>
+</ol>

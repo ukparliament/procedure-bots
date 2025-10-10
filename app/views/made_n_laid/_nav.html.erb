@@ -1,0 +1,5 @@
+<%= render 'library_design/subnav/subnav' do %>
+	<%= link_to( 'All instruments', made_n_laid_list_url, :class => 'all' ) %>
+	<%= link_to( 'Not posted to Bluesky', made_n_laid_not_posted_to_bluesky_url, :class => 'not-bluesky' ) %>
+	<%= link_to( 'Not posted to Mastodon', made_n_laid_not_posted_to_mastodon_url, :class => 'not-mastodon' ) %>
+<% end %>
