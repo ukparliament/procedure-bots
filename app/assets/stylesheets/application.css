@@ -1,12 +1,13 @@
 /* This is just for app specific overrides and extras */
 
- /* Main navigation active states */
+/* Main navigation active states */
 body.section-made-n-laid nav#header-nav a.made-n-laid {
 	border-bottom-color: #fff;
 }
 body.section-tweaty-twacker nav#header-nav a.tweaty-twacker {
 	border-bottom-color: #fff;
 }
+
 
 /* Secondary navigation active states */
 body.subsection-all .subnav a.all {
@@ -17,4 +18,11 @@ body.subsection-not-bluesky .subnav a.not-bluesky {
 }
 body.subsection-not-mastodon .subnav a.not-mastodon {
 	border-bottom-color: #CBC9CD;
+}
+
+
+/* SPARQL textareas */
+#sparql textarea {
+	height: 500px;
+	width: 100%;
 }

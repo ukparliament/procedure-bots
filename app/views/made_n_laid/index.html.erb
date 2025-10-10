@@ -7,3 +7,29 @@
 <ol class="unnumbered margin-top-20" role="list">
 	<%= render :partial => 'instrument', :collection => @instruments %>
 </ol>
+
+<details id="sparql">
+  <summary>SPARQL queries used by this page</summary>
+  <textarea>
+		PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		PREFIX : <https://id.parliament.uk/schema/>
+		PREFIX id: <https://id.parliament.uk/>
+
+		SELECT ?MadeSI ?Title ?MadeDate ?laidDate ?ProcedureName ?WorkPackageURL WHERE {
+		?MadeSI a :MadeStatutoryInstrumentPaper;
+		        :workPackagedThingName ?Title;
+		        :statutoryInstrumentPaperMadeDate ?MadeDate;
+		        :laidThingHasLaying ?laying;
+		        :workPackagedThingHasWorkPackage ?workPackage.
+		?laying :date ?laidDate.
+		?laying :businessItemHasProcedureStep id:cspzmb6w. 
+		?workPackage :workPackageHasProcedure ?procedure.
+		?procedure :name ?ProcedureName.
+
+		BIND(STR(?workPackage) AS ?workPackageStr)
+		BIND(REPLACE(?workPackageStr, '^.*[/#]', '') AS ?workPackageID)
+		BIND(CONCAT('https://api.parliament.uk/procedure-browser/work-packages/', ?workPackageID) AS ?WorkPackageURL)
+		}
+		ORDER BY DESC(?MadeDate)
+  </textarea>
+</details>
