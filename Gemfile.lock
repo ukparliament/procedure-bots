@@ -155,7 +155,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.15.1)
+    json (2.15.2)
     logger (1.7.0)
     lograge (0.14.0)
       actionpack (>= 4)
@@ -316,7 +316,6 @@ GEM
     sass-embedded (1.93.2-x86_64-linux-musl)
       google-protobuf (~> 4.31)
     securerandom (0.4.1)
-    bump-design-system-to-0.5.0
     selenium-webdriver (4.38.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -385,4 +384,4 @@ RUBY VERSION
    ruby 3.4.7p58
 
 BUNDLED WITH
-   2.7.1
+   2.7.2
