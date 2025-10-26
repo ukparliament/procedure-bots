@@ -1,19 +1,13 @@
 /* Main navigation active states */
-body.section-made-n-laid nav#header-nav a.made-n-laid {
-	border-bottom-color: #fff;
-}
+body.section-made-n-laid nav#header-nav a.made-n-laid,
 body.section-tweaty-twacker nav#header-nav a.tweaty-twacker {
 	border-bottom-color: #fff;
 }
 
 
 /* Secondary navigation active states */
-body.subsection-all .subnav a.all {
-	border-bottom-color: #CBC9CD;
-}
-body.subsection-not-bluesky .subnav a.not-bluesky {
-	border-bottom-color: #CBC9CD;
-}
+body.subsection-all .subnav a.all,
+body.subsection-not-bluesky .subnav a.not-bluesky,
 body.subsection-not-mastodon .subnav a.not-mastodon {
 	border-bottom-color: #CBC9CD;
 }

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-gb">
 	<head>
 		<%= render :partial => 'library_design/head/head' %>
 	</head>
 	<body class="section-<%= @section %> subsection-<%= @subsection %> brand-bicameral">
-		<%= render :partial => 'layouts/header' %>
-		<main class="container block block-page" id="main-content">
-			<%= content_tag( 'h1', @multiline_page_title || @page_title || $SITE_TITLE ) %>
-			<%= yield %>
+		<%= render 'layouts/header/header' %>
+		<main class="block block-page" id="main-content">
+			<div class="inner-content container">
+				<%= render 'library_design/debug/debug' -%>
+				<h1><%= @multiline_page_title || @page_title || $PRODUCT_TITLE %></h1>
+				<%= yield %>
+			</div>
 		</main>
-		<%= render :partial => 'library_design/footer' %>
+		<%= render 'layouts/footer/footer' %>
 	</body>
 </html>
+x
