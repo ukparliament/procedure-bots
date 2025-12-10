@@ -21,7 +21,7 @@ class TweatyTwackerController < ApplicationController
     
     # We set the page meta information.
     @page_title = "Tweaty Twacker - not posted to Bluesky"
-    @description = "Treaties not posted to Bluesky."
+    @description = "Treaties laid under the Constitutional Reform and Governance Act 2010 not posted to Bluesky."
     @crumb << { label: "Tweaty Twacker", url: tweaty_twacker_list_url }
     @crumb << { label: 'Not posted to Bluesky', url: nil }
     @section = 'tweaty-twacker'
@@ -37,7 +37,7 @@ class TweatyTwackerController < ApplicationController
     
     # We set the page meta information.
     @page_title = "Tweaty Twacker - not posted to Mastodon"
-    @description = "Treaties not posted to Mastodon."
+    @description = "Treaties laid under the Constitutional Reform and Governance Act 2010 not posted to Mastodon."
     @crumb << { label: "Tweaty Twacker", url: tweaty_twacker_list_url }
     @crumb << { label: 'Not posted to Mastodon', url: nil }
     @section = 'tweaty-twacker'
