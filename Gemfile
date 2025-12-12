@@ -33,7 +33,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-gem "library_design", github: "ukparliament/design-assets", glob: "library_design/*.gemspec", tag: "0.6.4"
+gem "library_design", github: "ukparliament/design-assets", glob: "library_design/*.gemspec", tag: "0.6.5"
 gem "irb"
 gem "dotenv-rails"
 gem "lograge"
