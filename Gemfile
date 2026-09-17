@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby file: '.tool-versions'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.1.1"
+gem "rails", "~> 8.1.3"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use postgresql as the database for Active Record
@@ -21,10 +21,11 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem "library_design", github: "ukparliament/design-assets", glob: "library_design/*.gemspec", tag: "0.6.10"
+gem "library_design", github: "ukparliament/design-assets", glob: "library_design/*.gemspec", tag: "0.6.14"
 gem "irb"
 gem "dotenv-rails"
 gem "lograge"
+gem "json", "<3"
 
 group :development do
   gem "annotaterb"
