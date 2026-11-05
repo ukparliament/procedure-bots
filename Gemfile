@@ -25,7 +25,7 @@ gem "library_design", github: "ukparliament/design-assets", glob: "library_desig
 gem "irb"
 gem "dotenv-rails"
 gem "lograge"
-gem "json", "<3"
+gem "json"
 
 group :development do
   gem "annotaterb"
